@@ -10,7 +10,6 @@ class AddTodo extends StatefulWidget {
 class _AddTodoState extends State<AddTodo> {
   Todo todo = Todo("", later: true);
 
-
   void updateContent(String content) {
     setState(() {
       todo.content = content;
@@ -44,6 +43,9 @@ class _AddTodoState extends State<AddTodo> {
                 TextField(
                   onSubmitted: updateContent,
                   onChanged: updateContent,
+                  style: TextStyle(fontSize: 24),
+                  minLines: 1,
+                  maxLines: 4,
                   decoration: InputDecoration(
                       hintText: "Enter Task",
                       hintStyle: headlineStyle.copyWith(
@@ -90,27 +92,31 @@ class _AddTodoState extends State<AddTodo> {
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: InkWell(
-              onTap: () {
-                Navigator.pop(context, todo);
-              },
-              child: Container(
-                  height: 100,
-                  width: double.infinity,
-                  color: kPrimaryColor,
-                  child: Center(
-                      child: Text(
-                    "Add Task",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 21,
-                        fontWeight: FontWeight.w500),
-                  ))),
-            ),
-          )
+          _addTask(onTap: () {
+            Navigator.pop(context, todo);
+          })
         ],
+      ),
+    );
+  }
+
+  Align _addTask({Function onTap}) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+            height: 100,
+            width: double.infinity,
+            color: kPrimaryColor,
+            child: Center(
+                child: Text(
+              "Add Task",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 21,
+                  fontWeight: FontWeight.w500),
+            ))),
       ),
     );
   }
