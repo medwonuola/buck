@@ -1,3 +1,4 @@
+import 'package:buck/view/util/add_todo_botton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -32,23 +33,7 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16)
-                      .add(EdgeInsets.only(bottom: 30)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Tasks",
-                        style: headlineStyle,
-                      ),
-                      Icon(
-                        Icons.notifications_none,
-                        size: 23,
-                      )
-                    ],
-                  ),
-                ),
+                _topSection(),
                 today.isNotEmpty
                     ? TodoBlock(
                         day: "Today",
@@ -64,37 +49,38 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: InkWell(
-              focusColor: Colors.white,
-              splashColor: Colors.white,
-              onTap: () async {
-                var newTodo = await Navigator.push(
-                    context,
-                    CupertinoPageRoute(
-                        builder: (BuildContext context) => AddTodo()));
-                setState(() {
-                  todoList.add(newTodo);
-                  newTodo.later ? tomorrow.add(newTodo) : today.add(newTodo);
-                });
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius:
-                        BorderRadius.only(topLeft: Radius.circular(10))),
-                width: 100,
-                height: 100,
-                child: Center(
-                  child: Icon(
-                    Icons.add_circle_rounded,
-                    color: Colors.white,
-                    size: 50,
-                  ),
-                ),
-              ),
-            ),
+          AddTodoButton(
+            onTap: addTodo,
+          )
+        ],
+      ),
+    );
+  }
+
+  Future<void> addTodo() async {
+    var newTodo = await Navigator.push(context,
+        CupertinoPageRoute(builder: (BuildContext context) => AddTodo()));
+    if (newTodo != null)
+      setState(() {
+        todoList.add(newTodo);
+        newTodo.later ? tomorrow.add(newTodo) : today.add(newTodo);
+      });
+  }
+
+  Padding _topSection() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16)
+          .add(EdgeInsets.only(bottom: 30)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            "Tasks",
+            style: headlineStyle,
+          ),
+          Icon(
+            Icons.notifications_none,
+            size: 23,
           )
         ],
       ),
