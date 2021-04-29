@@ -17,7 +17,7 @@ class TopSection extends StatelessWidget {
           ),
           Icon(
             Icons.notifications_none,
-            size: 23,
+            size: 30,
           )
         ],
       ),

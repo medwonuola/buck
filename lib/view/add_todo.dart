@@ -46,7 +46,7 @@ class _AddTodoState extends State<AddTodo> {
                   cursorColor: Colors.grey,
                   style: TextStyle(fontSize: 30),
                   minLines: 1,
-                  maxLines: 4,
+                  maxLines: 2,
                   decoration: InputDecoration(
                       hintText: "Enter Task",
                       hintStyle: headlineStyle.copyWith(
