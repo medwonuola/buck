@@ -43,7 +43,8 @@ class _AddTodoState extends State<AddTodo> {
                 TextField(
                   onSubmitted: updateContent,
                   onChanged: updateContent,
-                  style: TextStyle(fontSize: 24),
+                  cursorColor: Colors.grey,
+                  style: TextStyle(fontSize: 30),
                   minLines: 1,
                   maxLines: 4,
                   decoration: InputDecoration(
