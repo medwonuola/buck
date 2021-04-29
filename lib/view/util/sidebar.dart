@@ -8,20 +8,25 @@ class SideBar extends StatelessWidget {
     return Scaffold(
       backgroundColor: kSecondaryColor,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 72),
+        padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 64),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(),
             Row(
               children: [
+                Text("TASK APP",
+                    style: TextStyle(fontSize: 15, color: Colors.white)),
+                Spacer(),
                 IconButton(
-                  icon: Icon(Icons.highlight_remove, color: Colors.white),
+                  icon: Icon(Icons.close, color: Colors.white),
                   onPressed: () {
                     Navigator.pop(context);
                   },
                 )
               ],
             ),
+            SizedBox(height: 32),
             ...[
               "Dashboard",
               "Calender",
@@ -43,7 +48,7 @@ class SideBar extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: Text(
                   e,
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(fontSize: 17, color: Colors.white),
                 ),
               ),
             ),
