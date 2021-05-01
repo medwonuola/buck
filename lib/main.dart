@@ -1,6 +1,7 @@
 import 'package:buck/constants.dart';
 import 'package:flutter/material.dart';
-import 'view/home.dart';
+
+import 'view/screens/home.dart';
 
 void main() => runApp(Buck());
 
