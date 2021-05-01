@@ -1,3 +1,4 @@
+import 'package:buck/constants/asset_paths.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 
@@ -29,8 +30,8 @@ class Start extends StatelessWidget {
           Positioned(
               top: -300,
               left: -420,
-              child: Transform.rotate(
-                  angle: 0, child: Image.asset("assets/bg-img.png"))),
+              child:
+                  Transform.rotate(angle: 0, child: Image.asset(bgImagePath))),
           Positioned(top: size.height * 0.5, left: 41, child: helloText),
           Positioned(
               right: 0,
@@ -51,7 +52,7 @@ class Start extends StatelessWidget {
                               borderRadius: BorderRadius.only(
                                   bottomLeft: radius, topLeft: radius)),
                           child: Center(
-                            child: Image.asset("assets/googleLogo.png"),
+                            child: Image.asset(googleLogoPath),
                           ))
                     ],
                   ),
