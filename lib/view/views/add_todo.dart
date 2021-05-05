@@ -1,7 +1,7 @@
 import 'package:buck/core/models/todo_model.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../../constants/constants.dart';
 
 class AddTodo extends StatefulWidget {
   @override
@@ -9,7 +9,7 @@ class AddTodo extends StatefulWidget {
 }
 
 class _AddTodoState extends State<AddTodo> {
-  Todo todo = Todo("", later: true);
+  Todo todo = Todo("", deadline: Deadline.Later);
 
   void updateContent(String content) {
     setState(() {

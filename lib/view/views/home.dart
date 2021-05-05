@@ -1,7 +1,7 @@
-import 'package:buck/view/util/add_todo_botton.dart';
-import 'package:buck/view/util/sidebar.dart';
-import 'package:buck/view/util/todo_block.dart';
-import 'package:buck/view/util/top_section.dart';
+import 'package:buck/view/widgets/add_todo_botton.dart';
+import 'package:buck/view/widgets/sidebar.dart';
+import 'package:buck/view/widgets/todo_block.dart';
+import 'package:buck/view/widgets/top_section.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

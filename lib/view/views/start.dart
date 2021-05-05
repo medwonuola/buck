@@ -1,6 +1,6 @@
 import 'package:buck/constants/asset_paths.dart';
 import 'package:flutter/material.dart';
-import '../../constants.dart';
+import '../../constants/constants.dart';
 
 class Start extends StatelessWidget {
   @override

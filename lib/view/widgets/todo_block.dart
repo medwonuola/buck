@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../../constants/constants.dart';
 import '../../core/models/todo_model.dart';
 
 class TodoBlock extends StatefulWidget {

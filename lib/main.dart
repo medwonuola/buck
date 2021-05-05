@@ -1,4 +1,4 @@
-import 'package:buck/constants.dart';
+import 'package:buck/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'view/screens/home.dart';

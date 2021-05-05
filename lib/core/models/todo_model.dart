@@ -1,11 +1,14 @@
+import 'package:buck/core/enums/deadlines.dart';
+
 class Todo {
-  bool later = false;
   String content;
+  Deadline deadline;
   bool done = false;
+  DateTime date;
 
-  Todo(this.content, {this.later});
+  Todo(this.content, {this.deadline = Deadline.Today});
 
-  void mark(){
+  void mark() {
     done = !done;
   }
 }
