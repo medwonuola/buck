@@ -1,8 +1,12 @@
 import 'package:buck/constants/constants.dart';
+import 'package:buck/locator.dart';
 import 'package:flutter/material.dart';
 import 'router.dart';
 
-void main() => runApp(Buck());
+void main() {
+  setupLocator();
+  runApp(Buck());
+}
 
 class Buck extends StatelessWidget {
   @override
@@ -14,7 +18,7 @@ class Buck extends StatelessWidget {
           canvasColor: Colors.white,
           primaryIconTheme: IconThemeData(color: Colors.black)),
       title: 'Buck',
-      initialRoute: '/',
+      initialRoute: RouteNames.Home,
       onGenerateRoute: Routing.generateRoute,
     );
   }

@@ -4,7 +4,7 @@ class Todo {
   String content;
   Deadline deadline;
   bool done = false;
-  DateTime date;
+  // TODO: set up DateTime for deadlines
 
   Todo(this.content, {this.deadline = Deadline.Today});
 
