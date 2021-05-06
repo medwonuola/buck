@@ -1,3 +1,4 @@
+import 'package:buck/core/enums/deadlines.dart';
 import 'package:buck/core/models/todo_model.dart';
 import 'package:flutter/material.dart';
 
@@ -68,24 +69,28 @@ class _AddTodoState extends State<AddTodo> {
                     TextButton(
                       onPressed: () {
                         setState(() {
-                          todo.later = false;
+                          todo.deadline = Deadline.Today;
                         });
                       },
                       child: Text("Today",
                           style: TextStyle(
                               fontSize: 15,
-                              color: todo.later ? Colors.grey : kPrimaryColor)),
+                              color: todo.deadline == Deadline.Today
+                                  ? kPrimaryColor
+                                  : Colors.grey)),
                     ),
                     TextButton(
                       onPressed: () {
                         setState(() {
-                          todo.later = true;
+                          todo.deadline = Deadline.Tomorrow;
                         });
                       },
                       child: Text("Tomorrow",
                           style: TextStyle(
                               fontSize: 15,
-                              color: todo.later ? kPrimaryColor : Colors.grey)),
+                              color: todo.deadline == Deadline.Tomorrow
+                                  ? kPrimaryColor
+                                  : Colors.grey)),
                     ),
                     Text("Select Date",
                         style: TextStyle(fontSize: 15, color: Colors.grey))
