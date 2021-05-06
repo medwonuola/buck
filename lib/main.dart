@@ -1,7 +1,6 @@
 import 'package:buck/constants/constants.dart';
 import 'package:flutter/material.dart';
-
-import 'view/views/home.dart';
+import 'router.dart';
 
 void main() => runApp(Buck());
 
@@ -15,7 +14,8 @@ class Buck extends StatelessWidget {
           canvasColor: Colors.white,
           primaryIconTheme: IconThemeData(color: Colors.black)),
       title: 'Buck',
-      home: Home(),
+      initialRoute: '/',
+      onGenerateRoute: Routing.generateRoute,
     );
   }
 }
