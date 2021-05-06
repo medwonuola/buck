@@ -1,19 +1,17 @@
-import 'package:buck/view/views/add_todo_view.dart';
-import 'package:flutter/material.dart';
-
+import 'view/views/add_todo_view.dart';
 import 'view/views/homeview.dart';
 import 'view/views/welcome_view.dart';
 
-const String initialRoute = "home";
+import 'package:flutter/material.dart';
 
 class Routing {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case '/':
+      case RouteNames.Home:
         return MaterialPageRoute(builder: (_) => HomeView());
-      case 'addTodo':
+      case RouteNames.AddTodo:
         return MaterialPageRoute(builder: (_) => AddTodoView());
-      case 'welcome':
+      case RouteNames.Welcome:
         return MaterialPageRoute(builder: (_) => WelcomeView());
       default:
         return MaterialPageRoute(
@@ -25,4 +23,10 @@ class Routing {
                 ));
     }
   }
+}
+
+class RouteNames {
+  static const String Home = "/";
+  static const String Welcome = "welcome";
+  static const String AddTodo = "addTodo";
 }
