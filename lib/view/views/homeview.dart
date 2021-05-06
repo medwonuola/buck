@@ -6,14 +6,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../../core/models/todo_model.dart';
-import 'add_todo.dart';
+import 'add_todo_view.dart';
 
-class Home extends StatefulWidget {
+class HomeView extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _HomeViewState createState() => _HomeViewState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeViewState extends State<HomeView> {
   List<Todo> todoList = [];
 
   List<Todo> today = [];
@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
 
   Future<void> addTodo() async {
     var newTodo = await Navigator.push(context,
-        CupertinoPageRoute(builder: (BuildContext context) => AddTodo()));
+        CupertinoPageRoute(builder: (BuildContext context) => AddTodoView()));
     if (newTodo != null)
       setState(() {
         todoList.add(newTodo);

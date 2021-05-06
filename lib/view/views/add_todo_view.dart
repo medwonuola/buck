@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
 
-class AddTodo extends StatefulWidget {
+class AddTodoView extends StatefulWidget {
   @override
-  _AddTodoState createState() => _AddTodoState();
+  _AddTodoViewState createState() => _AddTodoViewState();
 }
 
-class _AddTodoState extends State<AddTodo> {
+class _AddTodoViewState extends State<AddTodoView> {
   Todo todo = Todo("", deadline: Deadline.Later);
 
   void updateContent(String content) {
