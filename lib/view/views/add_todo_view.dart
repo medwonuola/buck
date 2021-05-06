@@ -1,5 +1,5 @@
 import 'package:buck/core/enums/deadlines.dart';
-import 'package:buck/core/models/todo_model.dart';
+import 'package:buck/core/models/todo.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';

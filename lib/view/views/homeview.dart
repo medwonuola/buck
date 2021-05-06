@@ -5,7 +5,7 @@ import 'package:buck/view/widgets/top_section.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import '../../core/models/todo_model.dart';
+import '../../core/models/todo.dart';
 import 'add_todo_view.dart';
 
 class HomeView extends StatefulWidget {

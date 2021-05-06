@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
-import '../../core/models/todo_model.dart';
+import '../../core/models/todo.dart';
 
 class TodoBlock extends StatefulWidget {
   final String day;
