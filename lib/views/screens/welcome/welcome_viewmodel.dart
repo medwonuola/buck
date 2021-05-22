@@ -1,3 +1,5 @@
 import 'package:stacked/stacked.dart';
 
-class WelcomeViewModel extends BaseViewModel {}
+class WelcomeViewModel extends BaseViewModel {
+  signInWithGoogle() {}
+}
