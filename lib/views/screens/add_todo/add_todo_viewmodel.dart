@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 class AddTodoViewModel extends BaseViewModel {
-  Todo _todo = Todo("", deadline: Deadline.Later);
+  Todo _todo = Todo("", deadline: Deadline.Today);
 
   void updateContent(String content) {
     _todo.content = content;

@@ -1,2 +1,2 @@
-const bgImagePath = "assets/images/bg_img.png";
-const googleLogoPath = "assets/images/google_logo.png";
+const bgImagePath = "assets/bg_img.png";
+const googleLogoPath = "assets/google_logo.png";

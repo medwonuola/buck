@@ -3,6 +3,7 @@ import 'package:buck/views/components/add_todo_button.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import '../todo_block.dart';
 import 'home_viewmodel.dart';
 
 class HomeView extends StatelessWidget {
@@ -11,27 +12,33 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
-      builder: (context, model, child) => Scaffold(
-        appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            leading: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.menu, color: Colors.black),
-            )),
-        body: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Column(
-                children: [
-                  _topSection(),
-                  //TODO: Implement todo views
-                ],
+      builder: (context, model, child) => WillPopScope(
+        onWillPop: () => Future.value(false),
+        child: Scaffold(
+          appBar: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              leading: IconButton(
+                onPressed: () => model.showSideBar(context),
+                icon: Icon(Icons.menu, color: Colors.black),
+              )),
+          body: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Column(
+                  children: [
+                    _topSection(),
+                    TodoBlock(day: "Today", dayTodoList: model.todayTodo),
+                    TodoBlock(day: "Tomorrow", dayTodoList: model.tomorrowTodo),
+
+                    //TODO: Implement todo views
+                  ],
+                ),
               ),
-            ),
-            AddTodoButton(onTap: null)
-          ],
+              AddTodoButton(onTap: () => model.addTodo(context))
+            ],
+          ),
         ),
       ),
       viewModelBuilder: () => HomeViewModel(),

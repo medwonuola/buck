@@ -51,15 +51,21 @@ class AddTodoView extends StatelessWidget {
                       _setDeadlineUI(
                           day: "Today",
                           deadline: model.deadline,
+                          preset: Deadline.Today,
                           onTap: () => model.setDeadline(Deadline.Today)),
                       _setDeadlineUI(
                           day: "Tomorrow",
                           deadline: model.deadline,
-                          onTap: () => model.setDeadline(Deadline.Tomorrow))
+                          preset: Deadline.Tomorrow,
+                          onTap: () => model.setDeadline(Deadline.Tomorrow)),
+                      _setDeadlineUI(
+                          day: "Later",
+                          deadline: model.deadline,
+                          preset: Deadline.Later,
+                          onTap: () => model.setDeadline(Deadline.Later))
                       //TODO: implement later deadline selection
                     ],
                   )
-
                 ],
               ),
             ),
@@ -71,13 +77,15 @@ class AddTodoView extends StatelessWidget {
     );
   }
 
-  _setDeadlineUI({String day, Deadline deadline, Function onTap}) => TextButton(
-      onPressed: onTap,
-      child: Text(day,
-          style: TextStyle(
-            fontSize: 15,
-            color: deadline == Deadline.Today ? kPrimaryColor : Colors.grey,
-          )));
+  _setDeadlineUI(
+          {String day, Deadline preset, Deadline deadline, Function onTap}) =>
+      TextButton(
+          onPressed: onTap,
+          child: Text(day,
+              style: TextStyle(
+                fontSize: 15,
+                color: deadline == preset ? kPrimaryColor : Colors.grey,
+              )));
 
   _addTask({@required Function onTap}) => Align(
       alignment: Alignment.bottomCenter,

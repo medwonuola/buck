@@ -1,4 +1,5 @@
 import 'package:buck/styles/asset_paths.dart';
+import 'package:buck/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -11,6 +12,7 @@ class WelcomeView extends StatelessWidget {
     const radius = Radius.circular(10);
     return ViewModelBuilder<WelcomeViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
+        backgroundColor: kPrimaryColor,
         body: Stack(
           children: [
             Positioned(
@@ -24,7 +26,7 @@ class WelcomeView extends StatelessWidget {
                 top: size.height * 0.65,
                 width: size.width - 41,
                 child: InkWell(
-                  onTap: model.signInWithGoogle,
+                  onTap: () => model.signInWithGoogle(context),
                   child: Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
