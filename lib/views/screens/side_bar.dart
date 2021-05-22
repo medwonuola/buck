@@ -1,6 +1,5 @@
+import '../../styles/colors.dart';
 import 'package:flutter/material.dart';
-
-import '../../constants/constants.dart';
 
 class SideBar extends StatelessWidget {
   @override
@@ -34,10 +33,12 @@ class SideBar extends StatelessWidget {
               "Setting",
             ].map((e) => Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Text(
-                    e,
-                    style: TextStyle(fontSize: 32, color: Colors.white),
-                  ),
+                  child: TextButton(
+                      child: Text(
+                        e,
+                        style: TextStyle(fontSize: 32, color: Colors.white),
+                      ),
+                      onPressed: () {}),
                 )),
             ...[
               "About",
@@ -45,11 +46,13 @@ class SideBar extends StatelessWidget {
               "License",
             ].map(
               (e) => Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: Text(
-                  e,
-                  style: TextStyle(fontSize: 17, color: Colors.white),
-                ),
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: TextButton(
+                    child: Text(
+                      e,
+                      style: TextStyle(fontSize: 17, color: Colors.white),
+                    ),
+                    onPressed: () {}),
               ),
             ),
           ],

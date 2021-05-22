@@ -1,10 +1,9 @@
-import 'package:buck/core/enums/deadlines.dart';
+enum Deadline { Today, Tomorrow, Later }
 
 class Todo {
   String content;
   Deadline deadline;
   bool done = false;
-  // TODO: set up DateTime for deadlines
 
   Todo(this.content, {this.deadline = Deadline.Today});
 
