@@ -30,7 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.3
   stacked:
   provider:
-#  intl:
+  intl:
 #  get_it:
 #  google_sign_in:
 #  firebase_auth:

@@ -38,25 +38,23 @@ class _TodoBlockState extends State<TodoBlock> {
         : Container();
   }
 
-  Widget _todoWidget(Todo todo) => Flexible(
-        child: GestureDetector(
-          onTap: () {
-            setState(() {
-              todo.mark();
-            });
-          },
-          child: Text("  ${todo.content}  ",
-              softWrap: true,
-              style: TextStyle(
-                  fontSize: 20,
-                  decoration: todo.done
-                      ? TextDecoration.lineThrough
-                      : TextDecoration.none,
-                  decorationColor: kPrimaryColor,
-                  decorationThickness: 2,
-                  letterSpacing: 2)),
-        ),
-      );
+  Widget _todoWidget(Todo todo) => GestureDetector(
+    onTap: () {
+      setState(() {
+        todo.mark();
+      });
+    },
+    child: Text("  ${todo.content}  ",
+        softWrap: true,
+        style: TextStyle(
+            fontSize: 20,
+            decoration: todo.done
+                ? TextDecoration.lineThrough
+                : TextDecoration.none,
+            decorationColor: kPrimaryColor,
+            decorationThickness: 2,
+            letterSpacing: 2)),
+  );
 
   RotatedBox deadline() {
     return RotatedBox(
