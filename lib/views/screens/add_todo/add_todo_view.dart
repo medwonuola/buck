@@ -7,10 +7,12 @@ import 'package:stacked/stacked.dart';
 import 'add_todo_viewmodel.dart';
 
 class AddTodoView extends StatelessWidget {
-  const AddTodoView({Key key}) : super(key: key);
+
+  final sampleDeadlineToString = Deadline.Later.toString().split(".")[1];
 
   @override
   Widget build(BuildContext context) {
+    print(sampleDeadlineToString);
     return ViewModelBuilder<AddTodoViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
@@ -49,20 +51,17 @@ class AddTodoView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       _setDeadlineUI(
-                          day: "Today",
-                          deadline: model.deadline,
-                          preset: Deadline.Today,
-                          onTap: () => model.setDeadline(Deadline.Today)),
+                          currentDeadline: model.deadline,
+                          deadline: Deadline.Today,
+                          onTap: model.setDeadline),
                       _setDeadlineUI(
-                          day: "Tomorrow",
-                          deadline: model.deadline,
-                          preset: Deadline.Tomorrow,
-                          onTap: () => model.setDeadline(Deadline.Tomorrow)),
+                          currentDeadline: model.deadline,
+                          deadline: Deadline.Tomorrow,
+                          onTap: model.setDeadline),
                       _setDeadlineUI(
-                          day: "Later",
-                          deadline: model.deadline,
-                          preset: Deadline.Later,
-                          onTap: () => model.setDeadline(Deadline.Later))
+                          currentDeadline: model.deadline,
+                          deadline: Deadline.Later,
+                          onTap: model.setDeadline)
                       //TODO: implement later deadline selection
                     ],
                   )
@@ -78,13 +77,13 @@ class AddTodoView extends StatelessWidget {
   }
 
   _setDeadlineUI(
-          {String day, Deadline preset, Deadline deadline, Function onTap}) =>
+          {Deadline deadline, Deadline currentDeadline, Function onTap}) =>
       TextButton(
-          onPressed: onTap,
-          child: Text(day,
+          onPressed: () => onTap(deadline),
+          child: Text(deadline.toString().split(".")[1],
               style: TextStyle(
                 fontSize: 15,
-                color: deadline == preset ? kPrimaryColor : Colors.grey,
+                color: currentDeadline == deadline ? kPrimaryColor : Colors.grey,
               )));
 
   _addTask({@required Function onTap}) => Align(

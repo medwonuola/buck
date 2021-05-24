@@ -11,12 +11,15 @@ class HomeViewModel extends BaseViewModel {
 
   Future<void> addTodo(BuildContext context) async {
     var newTodo = await Navigator.pushNamed(context, AddTodoRoute) as Todo;
+
     if (newTodo != null && newTodo.content != "" || null) {
+
       _list.add(newTodo);
       newTodo.deadline == Deadline.Tomorrow
           ? tomorrowTodo.add(newTodo)
           : todayTodo.add(newTodo);
       notifyListeners();
+
     }
   }
 

@@ -22,16 +22,13 @@ class _TodoBlockState extends State<TodoBlock> {
               children: [
                 deadline(),
                 Flexible(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      for (Todo todo in widget.dayTodoList) _todoWidget(todo)
-                    ],
-                    // children: widget.dayTodoList.map(
-                    //       (Todo todo) => _todoWidget(todo).toList(),
-                  ),
-                )
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    for (Todo todo in widget.dayTodoList) _todoWidget(todo)
+                  ],
+                ))
               ],
             ),
           )
@@ -39,22 +36,22 @@ class _TodoBlockState extends State<TodoBlock> {
   }
 
   Widget _todoWidget(Todo todo) => GestureDetector(
-    onTap: () {
-      setState(() {
-        todo.mark();
-      });
-    },
-    child: Text("  ${todo.content}  ",
-        softWrap: true,
-        style: TextStyle(
-            fontSize: 20,
-            decoration: todo.done
-                ? TextDecoration.lineThrough
-                : TextDecoration.none,
-            decorationColor: kPrimaryColor,
-            decorationThickness: 2,
-            letterSpacing: 2)),
-  );
+        onTap: () {
+          setState(() {
+            todo.mark();
+          });
+        },
+        child: Text("  ${todo.content}  ",
+            softWrap: true,
+            style: TextStyle(
+                fontSize: 20,
+                decoration: todo.done
+                    ? TextDecoration.lineThrough
+                    : TextDecoration.none,
+                decorationColor: kPrimaryColor,
+                decorationThickness: 2,
+                letterSpacing: 2)),
+      );
 
   RotatedBox deadline() {
     return RotatedBox(
